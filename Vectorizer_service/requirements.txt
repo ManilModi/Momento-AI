@@ -1,0 +1,11 @@
+numpy>=2.1.0
+fastapi
+uvicorn
+opencv-python-headless
+httpx
+python-dotenv
+onnxruntime>=1.16.3
+insightface==0.7.3
+python-multipart
+boto3
+
