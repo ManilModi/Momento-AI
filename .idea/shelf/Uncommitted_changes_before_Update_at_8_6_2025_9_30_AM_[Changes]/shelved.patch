@@ -1,0 +1,107 @@
+Index: vectorizer_service/supabase_client.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import httpx\r\nimport os\r\nimport json\r\nimport numpy as np\r\nimport ast\r\n\r\nSUPABASE_URL = os.getenv(\"SUPABASE_URL\")\r\nSERVICE_KEY = os.getenv(\"SUPABASE_SERVICE_KEY\")\r\nBUCKET = os.getenv(\"SUPABASE_BUCKET\", \"face-images\")\r\n\r\nheaders = {\r\n    \"apikey\": SERVICE_KEY,\r\n    \"Authorization\": f\"Bearer {SERVICE_KEY}\"\r\n}\r\n\r\n\r\n# async def upload_image_to_supabase(filename: str, content: bytes) -> str:\r\n#     async with httpx.AsyncClient() as client:\r\n#         upload_url = f\"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{filename}?upsert=true\"\r\n\r\n#         res = await client.post(\r\n#             upload_url,\r\n#             headers={\r\n#                 **headers,\r\n#                 \"Content-Type\": \"application/octet-stream\"\r\n#             },\r\n#             content=content\r\n#         )\r\n\r\n#         print(\"\uD83D\uDCE6 Upload status:\", res.status_code)\r\n#         print(\"\uD83D\uDCE6 Upload response:\", res.text)\r\n\r\n#         if res.status_code not in [200, 201]:\r\n#             raise Exception(\"Upload failed\")\r\n\r\n#         return f\"{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/{filename}\"\r\n\r\n\r\nasync def insert_face_record(image_url, embedding, event_id, business_id):\r\n    async with httpx.AsyncClient() as client:\r\n        payload = {\r\n            \"image_url\": image_url,\r\n            \"embedding\": embedding,\r\n            \"event_id\": event_id,\r\n            \"business_id\": business_id\r\n        }\r\n\r\n        res = await client.post(\r\n            f\"{SUPABASE_URL}/rest/v1/face_images\",\r\n            headers={**headers, \"Content-Type\": \"application/json\"},\r\n            json=payload\r\n        )\r\n\r\n        print(\"\uD83D\uDCDD Insert status:\", res.status_code)\r\n        print(\"\uD83D\uDCDD Insert response:\", res.text)\r\n\r\n        return res.status_code == 201\r\n\r\n\r\ndef cosine_similarity(a, b):\r\n    a = np.array(a, dtype=np.float32)\r\n    b = np.array(b, dtype=np.float32)\r\n    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-10)\r\n\r\nasync def search_similar_embeddings(embedding, event_id, business_id, threshold=0.9):\r\n    async with httpx.AsyncClient() as client:\r\n        res = await client.get(\r\n            f\"{SUPABASE_URL}/rest/v1/face_images?event_id=eq.{event_id}&business_id=eq.{business_id}\",\r\n            headers=headers\r\n        )\r\n\r\n        if res.status_code != 200:\r\n            raise Exception(\"Failed to fetch embeddings\")\r\n\r\n        records = res.json()\r\n\r\n        matches = []\r\n        for record in records:\r\n            db_embedding = record.get(\"embedding\")\r\n            if not db_embedding:\r\n                continue\r\n        \r\n            if isinstance(db_embedding, str):\r\n                try:\r\n                    db_embedding = ast.literal_eval(db_embedding)\r\n                except Exception as e:\r\n                    print(\"⚠\uFE0F Failed to parse embedding:\", e)\r\n                    continue\r\n\r\n            query_emb = np.array(embedding, dtype=np.float32)\r\n            db_emb = np.array(db_embedding, dtype=np.float32)\r\n\r\n            similarity = cosine_similarity(query_emb, db_emb)\r\n            if similarity > threshold:\r\n                matches.append({\r\n                    \"image_url\": record[\"image_url\"],\r\n                    \"similarity\": round(float(similarity), 4)\r\n                })\r\n\r\n        return sorted(matches, key=lambda x: -x[\"similarity\"])\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vectorizer_service/supabase_client.py b/vectorizer_service/supabase_client.py
+--- a/vectorizer_service/supabase_client.py	(revision bf4ef6224693b77cac47b5288e451c3c4d247e21)
++++ b/vectorizer_service/supabase_client.py	(date 1754452799582)
+@@ -3,6 +3,12 @@
+ import json
+ import numpy as np
+ import ast
++<<<<<<< HEAD
++=======
++from dotenv import load_dotenv
++load_dotenv()
++
++>>>>>>> origin/main
+ 
+ SUPABASE_URL = os.getenv("SUPABASE_URL")
+ SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
+@@ -14,6 +20,7 @@
+ }
+ 
+ 
++<<<<<<< HEAD
+ # async def upload_image_to_supabase(filename: str, content: bytes) -> str:
+ #     async with httpx.AsyncClient() as client:
+ #         upload_url = f"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{filename}?upsert=true"
+@@ -34,6 +41,28 @@
+ #             raise Exception("Upload failed")
+ 
+ #         return f"{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/{filename}"
++=======
++async def upload_image_to_supabase(filename: str, content: bytes) -> str:
++    async with httpx.AsyncClient() as client:
++        upload_url = f"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{filename}?upsert=true"
++
++        res = await client.post(
++            upload_url,
++            headers={
++                **headers,
++                "Content-Type": "application/octet-stream"
++            },
++            content=content
++        )
++
++        print("📦 Upload status:", res.status_code)
++        print("📦 Upload response:", res.text)
++
++        if res.status_code not in [200, 201]:
++            raise Exception("Upload failed")
++
++        return f"{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/{filename}"
++>>>>>>> origin/main
+ 
+ 
+ async def insert_face_record(image_url, embedding, event_id, business_id):
+Index: vectorizer_service/app.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from fastapi import FastAPI, File, UploadFile, Form, HTTPException\r\nfrom insightface.app import FaceAnalysis\r\nimport numpy as np\r\nimport cv2\r\nimport uuid\r\nimport traceback\r\nfrom supabase_client import (\r\n    insert_face_record,\r\n    search_similar_embeddings\r\n)\r\nfrom s3_client import upload_image_to_s3\r\n\r\n\r\napp = FastAPI()\r\nface_app = FaceAnalysis(name='buffalo_l', providers=['CPUExecutionProvider'])\r\nface_app.prepare(ctx_id=0)\r\n\r\n@app.post(\"/vectorize\")\r\nasync def vectorize_image(\r\n    file: UploadFile = File(...),\r\n    event_id: str = Form(...),\r\n    business_id: str = Form(...)\r\n):\r\n    try:\r\n        content = await file.read()\r\n        if not isinstance(content, (bytes, bytearray)):\r\n            raise ValueError(\"File content is not bytes\")\r\n\r\n        filename = f\"{uuid.uuid4()}.jpg\"\r\n        image_url = upload_image_to_s3(filename, content)\r\n\r\n        img = cv2.imdecode(np.frombuffer(content, np.uint8), cv2.IMREAD_COLOR)\r\n        faces = face_app.get(img)\r\n\r\n        if not faces:\r\n            return {\"message\": \"No face detected.\"}\r\n\r\n        results = []\r\n        for idx, face in enumerate(faces):\r\n            embedding = face.embedding.tolist()\r\n            success = await insert_face_record(image_url, embedding, event_id, business_id)\r\n            results.append({\r\n                \"face_index\": idx,\r\n                \"embedding_saved\": success,\r\n                \"image_url\": image_url\r\n            })\r\n\r\n        return {\r\n            \"status\": \"completed\",\r\n            \"total_faces\": len(faces),\r\n            \"results\": results\r\n        }\r\n\r\n    except Exception as e:\r\n        print(\"\uD83D\uDD25 Exception occurred:\", str(e))\r\n        traceback.print_exc()\r\n        return {\"error\": \"Internal Server Error\", \"detail\": str(e)}\r\n\r\n\r\n@app.post(\"/find-face\")\r\nasync def find_matching_group_image(\r\n    file: UploadFile = File(...),\r\n    event_id: str = Form(...),\r\n    business_id: str = Form(...)\r\n):\r\n    try:\r\n        content = await file.read()\r\n        img = cv2.imdecode(np.frombuffer(content, np.uint8), cv2.IMREAD_COLOR)\r\n\r\n        faces = face_app.get(img)\r\n        if not faces:\r\n            raise HTTPException(status_code=404, detail=\"No face detected\")\r\n\r\n        embedding = faces[0].embedding.tolist()\r\n        filename = f\"{uuid.uuid4()}.jpg\"\r\n        uploaded_url =  upload_image_to_s3(filename, content)\r\n\r\n        matches = await search_similar_embeddings(\r\n            embedding, event_id, business_id, threshold=0.6\r\n        )\r\n\r\n        return {\r\n            \"uploaded_image_url\": uploaded_url,\r\n            \"matched_images\": matches\r\n        }\r\n\r\n    except Exception as e:\r\n        print(\"\uD83D\uDD25 Exception occurred:\", str(e))\r\n        traceback.print_exc()\r\n        return {\"error\": \"Internal Server Error\", \"detail\": str(e)}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vectorizer_service/app.py b/vectorizer_service/app.py
+--- a/vectorizer_service/app.py	(revision bf4ef6224693b77cac47b5288e451c3c4d247e21)
++++ b/vectorizer_service/app.py	(date 1754452799580)
+@@ -8,7 +8,12 @@
+     insert_face_record,
+     search_similar_embeddings
+ )
++<<<<<<< HEAD
+ from s3_client import upload_image_to_s3
++=======
++# from s3_client import upload_image_to_s3
++from supabase_client import upload_image_to_supabase
++>>>>>>> origin/main
+ 
+ 
+ app = FastAPI()
+@@ -27,7 +32,11 @@
+             raise ValueError("File content is not bytes")
+ 
+         filename = f"{uuid.uuid4()}.jpg"
++<<<<<<< HEAD
+         image_url = upload_image_to_s3(filename, content)
++=======
++        image_url = await upload_image_to_supabase(filename, content)
++>>>>>>> origin/main
+ 
+         img = cv2.imdecode(np.frombuffer(content, np.uint8), cv2.IMREAD_COLOR)
+         faces = face_app.get(img)
+@@ -73,7 +82,11 @@
+ 
+         embedding = faces[0].embedding.tolist()
+         filename = f"{uuid.uuid4()}.jpg"
++<<<<<<< HEAD
+         uploaded_url =  upload_image_to_s3(filename, content)
++=======
++        uploaded_url =  await upload_image_to_supabase(filename, content)
++>>>>>>> origin/main
+ 
+         matches = await search_similar_embeddings(
+             embedding, event_id, business_id, threshold=0.6
