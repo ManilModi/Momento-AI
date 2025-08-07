@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:42230574747:android:1a3279753d2ffa173b203e",
+        "android_client_info": {
+          "package_name": "com.example.momento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42230574747-g7uhkpt70s58ikdgftf2rmvuptbtt0v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfrTUVqJacEENHEMwy2kTQimRTZCe2gdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42230574747-g7uhkpt70s58ikdgftf2rmvuptbtt0v0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "42230574747-2iajnedqn2fhto25ks8u58vm8ak5alk5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.momentoaiFlutter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:42230574747:android:4b385e0cca295f8f3b203e",
         "android_client_info": {
           "package_name": "com.example.momento_ai"
@@ -31,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "42230574747-3s09rf3fkpu82ovsrqhnl0k7b42mpnu7.apps.googleusercontent.com",
+              "client_id": "42230574747-2iajnedqn2fhto25ks8u58vm8ak5alk5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.momentoAi"
+                "bundle_id": "com.example.momentoaiFlutter"
               }
             }
           ]
@@ -67,10 +103,10 @@
               "client_type": 3
             },
             {
-              "client_id": "42230574747-3s09rf3fkpu82ovsrqhnl0k7b42mpnu7.apps.googleusercontent.com",
+              "client_id": "42230574747-2iajnedqn2fhto25ks8u58vm8ak5alk5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.momentoAi"
+                "bundle_id": "com.example.momentoaiFlutter"
               }
             }
           ]
