@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "42230574747",
+    "project_id": "momento-ai-6272d",
+    "storage_bucket": "momento-ai-6272d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42230574747:android:1a3279753d2ffa173b203e",
+        "android_client_info": {
+          "package_name": "com.example.momento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42230574747-c57tjl7eu75hfaug43cgmcntutro8jci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.momento",
+            "certificate_hash": "24db24bf0b806f31951686ff5ae544c2e78a6355"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfrTUVqJacEENHEMwy2kTQimRTZCe2gdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42230574747:android:4b385e0cca295f8f3b203e",
+        "android_client_info": {
+          "package_name": "com.example.momento_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfrTUVqJacEENHEMwy2kTQimRTZCe2gdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42230574747:android:9f4ae202cf93e2c23b203e",
+        "android_client_info": {
+          "package_name": "com.example.momentoai_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfrTUVqJacEENHEMwy2kTQimRTZCe2gdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

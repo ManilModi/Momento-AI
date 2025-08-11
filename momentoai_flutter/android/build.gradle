@@ -1,0 +1,21 @@
+buildscript {
+    ext.kotlin_version = '1.9.10' // Make sure this matches Flutter's required Kotlin version
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1' // Match Flutter's version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.0' // Required for Firebase Auth & Google Sign-In
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}

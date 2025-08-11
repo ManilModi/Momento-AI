@@ -4,26 +4,45 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="Removed vectorizer_service files permanently">
-      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/momentoai_flutter/lib/screens/home_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/momentoai_flutter/lib/screens/login_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/momentoai_flutter/lib/services/auth_service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/momentoai_flutter/tempfix/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added google auth config">
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android/app/src/main/kotlin/com/example/tempfix/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android/app/src/main/kotlin/com/yourcompany/momentoai_flutter/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android/build/reports/problems/problems-report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/build.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/kotlin/com/example/momentoai_flutter/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/values-night/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/build/reports/problems/problems-report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/momentoai_flutter/android_old/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/firebase_options.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/firebase_test.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/login_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/screens/home_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/screens/login_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/lib/services/auth_service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/android/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/android/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/android/app/src/main/kotlin/com/example/momentoai_flutter/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/android/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/android/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/lib/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/momentoai_flutter/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/momentoai_flutter/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/momentoai_flutter/tempfix/android/app/build.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,25 +83,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/StudioProjects/Momento-AI&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai/android/app",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai\android\app" />
+      <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai" />
+      <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai\lib" />
+    </key>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="" />
@@ -179,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754487447573</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added google auth config">
+      <option name="closed" value="true" />
+      <created>1754595493061</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1754595493061</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +235,7 @@
     <MESSAGE value="Removed unused vectorizer_service files" />
     <MESSAGE value="added python files" />
     <MESSAGE value="Removed vectorizer_service files permanently" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed vectorizer_service files permanently" />
+    <MESSAGE value="added google auth config" />
+    <option name="LAST_COMMIT_MESSAGE" value="added google auth config" />
   </component>
 </project>
