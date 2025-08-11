@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added google auth config">
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/firebase_options.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/firebase_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/home_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/login_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/services/auth_service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added final working config" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754923391281</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added final working config">
+      <option name="closed" value="true" />
+      <created>1754933597174</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1754933597174</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +242,7 @@
     <MESSAGE value="Removed vectorizer_service files permanently" />
     <MESSAGE value="Merge branch 'main' of https://github.com/ManilModi/Momento-AI&#10;&#10;# Conflicts:&#10;#&#9;README.md" />
     <MESSAGE value="added google auth config" />
-    <option name="LAST_COMMIT_MESSAGE" value="added google auth config" />
+    <MESSAGE value="added final working config" />
+    <option name="LAST_COMMIT_MESSAGE" value="added final working config" />
   </component>
 </project>
