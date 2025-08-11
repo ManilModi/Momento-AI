@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added final working config" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="removed old config">
+      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/assets/images/photography_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/services/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/services/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,13 +71,14 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed",
+    "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai_fixed\assets\images" />
       <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai_fixed" />
       <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai\android\app" />
       <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai" />
@@ -218,7 +229,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754933597174</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="removed old config">
+      <option name="closed" value="true" />
+      <created>1754933735124</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1754933735124</updated>
+    </task>
+    <task id="LOCAL-00019" summary="removed old config">
+      <option name="closed" value="true" />
+      <created>1754933783675</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1754933783675</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +270,7 @@
     <MESSAGE value="Merge branch 'main' of https://github.com/ManilModi/Momento-AI&#10;&#10;# Conflicts:&#10;#&#9;README.md" />
     <MESSAGE value="added google auth config" />
     <MESSAGE value="added final working config" />
-    <option name="LAST_COMMIT_MESSAGE" value="added final working config" />
+    <MESSAGE value="removed old config" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed old config" />
   </component>
 </project>

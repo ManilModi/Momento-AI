@@ -1,22 +1,42 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-Future<UserCredential?> signInWithGoogle() async {
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+class AuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  final GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: ['email'],
-    // Optionally add clientId ONLY IF REQUIRED (usually not needed for Android)
-  );
+  // Sign in with Google
+  Future<User?> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    if (googleUser == null) return null;
 
-  if (googleUser == null) return null; // User cancelled sign-in
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
 
-  final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final userCredential = await _auth.signInWithCredential(credential);
+    return userCredential.user;
+  }
 
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth.accessToken,
-    idToken: googleAuth.idToken,
-  );
+  // Sign in with email/password
+  Future<User?> signInWithEmail(String email, String password) async {
+    final userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+    return userCredential.user;
+  }
 
-  return await FirebaseAuth.instance.signInWithCredential(credential);
+  // Register with email/password
+  Future<User?> registerWithEmail(String email, String password) async {
+    final userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    return userCredential.user;
+  }
+
+  // Sign out
+  Future<void> signOut() async {
+    await _auth.signOut();
+    await _googleSignIn.signOut();
+  }
+
+  User? get currentUser => _auth.currentUser;
 }

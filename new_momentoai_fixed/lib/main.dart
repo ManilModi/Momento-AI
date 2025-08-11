@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; // Correct if using FlutterFire CLI
-
-import 'screens/login_screen.dart'; // Correct path to your LoginScreen
+import 'firebase_options.dart';
+import 'screens/login_screen.dart';
+import 'screens/home_screen.dart';
+import 'home_page.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Required for Firebase
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform, // From FlutterFire CLI
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
 }
@@ -18,9 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Momento AI',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.deepPurple,
+      ),
+      home: const HomePage(),
     );
   }
 }
