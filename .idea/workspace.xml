@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added firestore connection and role based auth">
-      <change afterPath="$PROJECT_DIR$/Vectorizer_service/clip_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vectorizer_service/clip_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vectorizer_service/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vectorizer_service/supabase_retriever.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vectorizer_service/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vectorizer_service/supabase_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/supabase_client.py" afterDir="false" />
-    </list>
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added text-to-image search using CLIP" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -271,7 +262,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754939793255</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029389966</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029389966</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029409256</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029409256</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +306,7 @@
     <MESSAGE value="removed old config" />
     <MESSAGE value="added home page and google auth" />
     <MESSAGE value="added firestore connection and role based auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added firestore connection and role based auth" />
+    <MESSAGE value="added text-to-image search using CLIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="added text-to-image search using CLIP" />
   </component>
 </project>
