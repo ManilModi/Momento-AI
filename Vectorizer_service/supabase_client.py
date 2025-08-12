@@ -3,6 +3,9 @@ import os
 import json
 import numpy as np
 import ast
+from dotenv import load_dotenv
+
+load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
@@ -17,7 +20,7 @@ print("🔗 Supabase URL:", SUPABASE_URL)
 
 async def upload_image_to_supabase(filename: str, content: bytes) -> str:
     async with httpx.AsyncClient() as client:
-        upload_url = f"{SUPABASE_URL}/storage/v1/object/{BUCKET}/{filename}?upsert=true"
+        upload_url = f"{SUPABASE_URL}/storage/v1/object/face-images/{filename}?upsert=true"
 
         res = await client.post(
             upload_url,
@@ -37,17 +40,18 @@ async def upload_image_to_supabase(filename: str, content: bytes) -> str:
         return f"{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/{filename}"
 
 
-async def insert_face_record(image_url, embedding, event_id, business_id):
+async def insert_face_record(image_url, embedding, event_id, business_id, clip_embedding):
     async with httpx.AsyncClient() as client:
         payload = {
             "image_url": image_url,
             "embedding": embedding,
             "event_id": event_id,
-            "business_id": business_id
+            "business_id": business_id,
+            "clip_embedding": clip_embedding
         }
 
         res = await client.post(
-            f"{SUPABASE_URL}/rest/v1/face_images",
+            f"{SUPABASE_URL}/rest/v1/face-images",
             headers={**headers, "Content-Type": "application/json"},
             json=payload
         )
@@ -66,7 +70,7 @@ def cosine_similarity(a, b):
 async def search_similar_embeddings(embedding, event_id, business_id, threshold=0.9):
     async with httpx.AsyncClient() as client:
         res = await client.get(
-            f"{SUPABASE_URL}/rest/v1/face_images?event_id=eq.{event_id}&business_id=eq.{business_id}",
+            f"{SUPABASE_URL}/rest/v1/face-images?event_id=eq.{event_id}&business_id=eq.{business_id}",
             headers=headers
         )
 
