@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added text-to-image search using CLIP" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added text-to-image search using CLIP">
+      <change beforePath="$PROJECT_DIR$/Vectorizer_service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755029409256</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029440405</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029440405</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
