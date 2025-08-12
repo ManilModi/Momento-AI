@@ -4,3 +4,4 @@ venv/
 /.idea/
 new_momentoai
 momentoai_flutter
+/Vectorizer_service/cache/
