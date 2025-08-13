@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added home page and google auth">
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added photographer screen">
+      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/addEvent_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugins.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" afterDir="false" />
@@ -70,9 +71,12 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "deb7af6d",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false"
   }
@@ -262,7 +266,119 @@
       <option name="project" value="LOCAL" />
       <updated>1754937556269</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added firestore connection and role based auth">
+      <option name="closed" value="true" />
+      <created>1754939793255</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1754939793255</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029389966</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029389966</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029409256</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029409256</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029440405</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029440405</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029473185</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029473185</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029483116</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029483116</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029507008</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029507008</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029517834</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029517834</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029539060</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029539060</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029553497</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029553497</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029609310</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029609310</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added text-to-image search using CLIP">
+      <option name="closed" value="true" />
+      <created>1755029850830</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1755029850830</updated>
+    </task>
+    <task id="LOCAL-00034" summary="deleted cache">
+      <option name="closed" value="true" />
+      <created>1755100264937</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1755100264937</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added photographer screen">
+      <option name="closed" value="true" />
+      <created>1755103751966</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1755103751966</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +405,10 @@
     <MESSAGE value="added final working config" />
     <MESSAGE value="removed old config" />
     <MESSAGE value="added home page and google auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added home page and google auth" />
+    <MESSAGE value="added firestore connection and role based auth" />
+    <MESSAGE value="added text-to-image search using CLIP" />
+    <MESSAGE value="deleted cache" />
+    <MESSAGE value="added photographer screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added photographer screen" />
   </component>
 </project>

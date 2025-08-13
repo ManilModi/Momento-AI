@@ -1,2 +1,5 @@
 venv/
 .env
+cache
+/cache/
+/face-match testing images/

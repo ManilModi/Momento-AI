@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uuid/uuid.dart';
+
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _selectedRole = 'Photographer'; // default role
+  String _selectedRole = 'Photographer';
   bool _isLoading = false;
 
   final List<String> roles = [
@@ -25,29 +28,49 @@ class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
 
+  // ----------------------
+  // Shared user document creation
+  // ----------------------
+  Future<void> _createUserDocIfNeeded(User user, String role) async {
+    final docRef = _firestore.collection('users').doc(user.uid);
+    final doc = await docRef.get();
+
+    if (!doc.exists) {
+      String? businessId;
+      if (role == 'Photographer') {
+        businessId = const Uuid().v4();
+      }
+
+      await docRef.set({
+        'email': user.email,
+        'role': role,
+        if (businessId != null) 'business_id': businessId,
+      });
+    }
+  }
+
+  // ----------------------
+  // Email & password login
+  // ----------------------
   Future<void> _signInWithEmail() async {
     try {
       setState(() => _isLoading = true);
+
       final userCredential = await _auth.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
 
-      // Check role from Firestore
-      final roleDoc = await _firestore
-          .collection('users')
-          .doc(userCredential.user!.uid)
-          .get();
-
-      if (!roleDoc.exists) {
-        await _firestore.collection('users').doc(userCredential.user!.uid).set({
-          'email': userCredential.user!.email,
-          'role': _selectedRole,
-        });
-      }
+      final user = userCredential.user!;
+      await _createUserDocIfNeeded(user, _selectedRole);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Logged in as $_selectedRole")),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => HomeScreen()),
       );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context)
@@ -57,9 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  // ----------------------
+  // Google login
+  // ----------------------
   Future<void> _signInWithGoogle() async {
     try {
       setState(() => _isLoading = true);
+
       final googleUser = await GoogleSignIn().signIn();
       if (googleUser == null) return;
 
@@ -70,26 +97,32 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       final userCredential = await _auth.signInWithCredential(credential);
+      final user = userCredential.user!;
 
-      // Store role in Firestore if not exists
-      final roleDoc = await _firestore
-          .collection('users')
-          .doc(userCredential.user!.uid)
-          .get();
+      // Check existing role in Firestore
+      final docRef = _firestore.collection('users').doc(user.uid);
+      final doc = await docRef.get();
 
-      if (!roleDoc.exists) {
-        await _firestore.collection('users').doc(userCredential.user!.uid).set({
-          'email': userCredential.user!.email,
-          'role': _selectedRole,
-        });
+      String role;
+      if (doc.exists) {
+        role = doc['role'];
+      } else {
+        role = _selectedRole;
+        await _createUserDocIfNeeded(user, role);
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Signed in with Google as $_selectedRole")),
+        SnackBar(content: Text("Signed in with Google as $role")),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => HomeScreen()),
       );
     } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Google Sign-In failed")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Google Sign-In failed")),
+      );
     } finally {
       setState(() => _isLoading = false);
     }
