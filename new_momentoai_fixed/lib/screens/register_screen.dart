@@ -12,17 +12,20 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _selectedRole = "client"; // default
+  String _selectedRole = "client"; // default role
 
   final List<String> _roles = ["photographer", "client", "admin"];
 
-  void _signUp() async {
+  Future<void> _signUp() async {
     try {
+      // Create user in Firebase Auth
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim());
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
 
+      // Save role and email in Firestore
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential.user!.uid)
@@ -31,9 +34,13 @@ class _SignupScreenState extends State<SignupScreen> {
         'role': _selectedRole,
       });
 
+      // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Sign up successful")),
       );
+
+      // Navigate to Login page
+      Navigator.pushReplacementNamed(context, '/login');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Error: $e")),

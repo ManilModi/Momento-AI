@@ -13,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  String _selectedRole = 'Photographer'; // default role
+  String _selectedRole = 'Photographer';
   bool _isLoading = false;
 
   final List<String> roles = [
@@ -33,7 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
         password: _passwordController.text.trim(),
       );
 
-      // Check role from Firestore
       final roleDoc = await _firestore
           .collection('users')
           .doc(userCredential.user!.uid)
@@ -49,6 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Logged in as $_selectedRole")),
       );
+
+      // Navigate to Home
+      Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message ?? 'Error')));
@@ -71,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
       final userCredential = await _auth.signInWithCredential(credential);
 
-      // Store role in Firestore if not exists
       final roleDoc = await _firestore
           .collection('users')
           .doc(userCredential.user!.uid)
@@ -87,6 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Signed in with Google as $_selectedRole")),
       );
+
+      // Navigate to Home
+      Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Google Sign-In failed")));

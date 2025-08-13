@@ -2,4 +2,4 @@ venv/
 .env
 cache
 /cache/
-/cache/
+/face-match testing images/
