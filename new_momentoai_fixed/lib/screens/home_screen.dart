@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'addEvent_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -72,9 +73,42 @@ class PhotographerHome extends StatelessWidget {
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
           children: [
-            _buildCard(context, "Add Event", Icons.event, Colors.indigo.shade400),
-            _buildCard(context, "All Events", Icons.event_note, Colors.indigo.shade600),
-            _buildCard(context, "Event Gallery", Icons.photo_library, Colors.indigo.shade700),
+            _buildCard(
+              context,
+              "Add Event",
+              Icons.add_box,
+              Colors.indigo.shade400,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const AddEventScreen()),
+                );
+              },
+            ),
+            _buildCard(
+              context,
+              "All Events",
+              Icons.event_note,
+              Colors.indigo.shade600,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => AllEventsScreen(businessId: businessId)),
+                );
+              },
+            ),
+            _buildCard(
+              context,
+              "Event Gallery",
+              Icons.photo_library,
+              Colors.indigo.shade700,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => EventGalleryListScreen(businessId: businessId)),
+                );
+              },
+            ),
             if (businessId != null)
               _buildCard(context, "Business ID: $businessId", Icons.business, Colors.indigo.shade300),
           ],
@@ -83,14 +117,14 @@ class PhotographerHome extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(BuildContext context, String title, IconData icon, Color color) {
+  Widget _buildCard(BuildContext context, String title, IconData icon, Color color, {VoidCallback? onTap}) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 6,
       shadowColor: color.withOpacity(0.5),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: () {},
+        onTap: onTap ?? () {},
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -210,7 +244,7 @@ Widget _buildDrawer(BuildContext context, String? profilePic) {
                 ? NetworkImage(profilePic)
                 : const AssetImage("assets/default_avatar.png") as ImageProvider,
           ),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.blueGrey,
           ),
         ),
@@ -241,4 +275,67 @@ Widget _buildDrawer(BuildContext context, String? profilePic) {
       ],
     ),
   );
+}
+
+// ================= All Events Screen =================
+class AllEventsScreen extends StatelessWidget {
+  final String? businessId;
+
+  const AllEventsScreen({super.key, this.businessId});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("All Events")),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('events')
+            .where('photographer_id', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
+          final events = snapshot.data!.docs;
+          return ListView.builder(
+            itemCount: events.length,
+            itemBuilder: (context, index) {
+              final event = events[index];
+              return ListTile(
+                title: Text(event['event_name']),
+                subtitle: Text("ID: ${event['event_id']}"),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => EventGalleryListScreen(eventId: event['event_id']),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+// ================= Event Gallery List Screen =================
+class EventGalleryListScreen extends StatelessWidget {
+  final String? businessId;
+  final String? eventId;
+
+  const EventGalleryListScreen({super.key, this.businessId, this.eventId});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Event Gallery")),
+      body: Center(
+        child: Text(eventId != null
+            ? "Gallery for Event ID: $eventId"
+            : "Select an event to view gallery"),
+      ),
+    );
+  }
 }

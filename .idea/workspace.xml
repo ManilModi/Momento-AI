@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="deleted cache">
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_screen.dart" afterDir="false" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added photographer screen">
+      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/addEvent_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +71,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "7db11ba5",
+    "git-widget-placeholder": "deb7af6d",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "project.structure.last.edited": "Project",
@@ -365,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755100264937</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added photographer screen">
+      <option name="closed" value="true" />
+      <created>1755103751966</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1755103751966</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,6 +408,7 @@
     <MESSAGE value="added firestore connection and role based auth" />
     <MESSAGE value="added text-to-image search using CLIP" />
     <MESSAGE value="deleted cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted cache" />
+    <MESSAGE value="added photographer screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added photographer screen" />
   </component>
 </project>
