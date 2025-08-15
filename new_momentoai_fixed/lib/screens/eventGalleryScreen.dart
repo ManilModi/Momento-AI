@@ -6,8 +6,10 @@ import 'dart:convert';
 import 'package:path/path.dart';
 
 class EventGalleryScreen extends StatefulWidget {
+  final String businessId;
   final String eventId;
-  const EventGalleryScreen({super.key, required this.eventId});
+
+  const EventGalleryScreen({super.key, required this.businessId, required this.eventId});
 
   @override
   State<EventGalleryScreen> createState() => _EventGalleryScreenState();
@@ -28,30 +30,41 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
 
   // Fetch images already uploaded for this event
   Future<void> _fetchUploadedImages() async {
+    setState(() => _isLoading = true);
     try {
-      final response = await http.get(
-        Uri.parse('http://10.0.2.2:8000/event/${widget.eventId}/images'), // Replace with your GET endpoint
+      final url = Uri.http(
+        '10.0.2.2:8000',
+        '/event-images',
+        {
+          'business_id': widget.businessId,
+          'event_id': widget.eventId,
+        },
       );
 
+      final response = await http.get(url);
+
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body) as List<dynamic>;
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        final List<dynamic> images = data['images'];
+
         setState(() {
-          _uploadedImageUrls = data.map((e) => e['url'] as String).toList();
+          _uploadedImageUrls = images.map((e) => e.toString()).toList();
           _isLoading = false;
         });
       } else {
-        throw Exception("Failed to fetch images");
+        throw Exception("Failed to fetch images: ${response.statusCode}");
       }
     } catch (e) {
       setState(() => _isLoading = false);
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Error fetching images: $e")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error fetching images: $e")),
+      );
     }
   }
 
   Future<void> _pickImages() async {
     final images = await _picker.pickMultiImage();
-    if (images != null) {
+    if (images != null && images.isNotEmpty) {
       setState(() => _selectedImages.addAll(images));
     }
   }
@@ -70,10 +83,11 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
       for (var image in _selectedImages) {
         var request = http.MultipartRequest(
           'POST',
-          Uri.parse('http://10.0.2.2:8000/vectorize'), // Your upload endpoint
+          Uri.parse('http://10.0.2.2:8000/vectorize'), // Upload endpoint
         );
 
         request.fields['event_id'] = widget.eventId;
+        request.fields['business_id'] = widget.businessId; // include businessId
         request.files.add(
           await http.MultipartFile.fromPath(
             'file',
@@ -92,6 +106,7 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("All images uploaded successfully!")),
       );
+
       _selectedImages.clear();
       _fetchUploadedImages(); // Refresh the gallery after upload
     } catch (e) {

@@ -212,3 +212,29 @@ def search_images(prompt: str = Query(...), top_k: int = Query(5)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/event-images")
+async def get_event_images(event_id: str = Query(...), business_id: str = Query(...)):
+    """
+    Fetch all images for a specific event and business.
+    """
+    try:
+        response = supabase.table(SUPABASE_TABLE) \
+            .select("image_url") \
+            .eq("event_id", event_id) \
+            .eq("business_id", business_id) \
+            .execute()
+
+        data = response.data
+        if not data:
+            raise HTTPException(status_code=404, detail="No images found for this event")
+
+        image_urls = [row["image_url"] for row in data]
+
+        return {"event_id": event_id, "business_id": business_id, "images": image_urls}
+
+    except Exception as e:
+        print("🔥 Exception occurred:", str(e))
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail="Internal Server Error")
