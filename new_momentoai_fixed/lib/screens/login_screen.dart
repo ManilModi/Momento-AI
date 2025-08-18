@@ -5,6 +5,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uuid/uuid.dart';
 
 import 'home_screen.dart';
+import 'photographer_home.dart';
+import 'client_images_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,11 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String _selectedRole = 'Photographer';
   bool _isLoading = false;
 
-  final List<String> roles = [
-    'Photographer',
-    'Client',
-    'Admin',
-  ];
+  final List<String> roles = ['Photographer', 'Client', 'Admin'];
 
   final _auth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
@@ -50,6 +48,40 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // ----------------------
+  // Navigate based on role
+  // ----------------------
+  Future<void> _redirectToDashboard(User user) async {
+    final doc = await _firestore.collection('users').doc(user.uid).get();
+    if (!doc.exists) return;
+
+    final role = (doc['role'] as String).toLowerCase();
+
+    if (!mounted) return; // ✅ Prevents navigation errors
+
+    if (role == 'photographer') {
+      final businessId = doc['business_id'];
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => PhotographerHome(businessId: businessId),
+        ),
+      );
+    } else if (role == 'client') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const ClientImagesScreen()),
+      );
+    } else if (role == 'admin') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    }
+  }
+
+
+
+  // ----------------------
   // Email & password login
   // ----------------------
   Future<void> _signInWithEmail() async {
@@ -68,10 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
         SnackBar(content: Text("Logged in as $_selectedRole")),
       );
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => HomeScreen()),
-      );
+      await _redirectToDashboard(user); // ✅ redirect properly
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message ?? 'Error')));
@@ -99,26 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
       final userCredential = await _auth.signInWithCredential(credential);
       final user = userCredential.user!;
 
-      // Check existing role in Firestore
+      // Ensure user doc exists
       final docRef = _firestore.collection('users').doc(user.uid);
       final doc = await docRef.get();
-
-      String role;
-      if (doc.exists) {
-        role = doc['role'];
-      } else {
-        role = _selectedRole;
-        await _createUserDocIfNeeded(user, role);
+      if (!doc.exists) {
+        await _createUserDocIfNeeded(user, _selectedRole);
       }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Signed in with Google as $role")),
-      );
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => HomeScreen()),
-      );
+      await _redirectToDashboard(user); // ✅ redirect
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Google Sign-In failed")),
@@ -140,8 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
             DropdownButtonFormField<String>(
               value: _selectedRole,
               items: roles
-                  .map((role) =>
-                  DropdownMenuItem(value: role, child: Text(role)))
+                  .map((role) => DropdownMenuItem(value: role, child: Text(role)))
                   .toList(),
               onChanged: (value) => setState(() => _selectedRole = value!),
               decoration: const InputDecoration(
