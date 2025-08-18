@@ -12,6 +12,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _businessIdController = TextEditingController(); // New field
   String _selectedRole = "client"; // default role
 
   final List<String> _roles = ["photographer", "client", "admin"];
@@ -25,13 +26,17 @@ class _SignupScreenState extends State<SignupScreen> {
         password: _passwordController.text.trim(),
       );
 
-      // Save role and email in Firestore
+      // Save role, businessId, and email in Firestore
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential.user!.uid)
           .set({
         'email': _emailController.text.trim(),
         'role': _selectedRole,
+        'business_id': _businessIdController.text.trim().isNotEmpty
+            ? _businessIdController.text.trim()
+            : "", // fallback if empty
+        'createdAt': FieldValue.serverTimestamp(),
       });
 
       // Show success message
@@ -54,38 +59,52 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(title: const Text("Sign Up")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: "Email"),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: "Password"),
-              obscureText: true,
-            ),
-            DropdownButtonFormField(
-              value: _selectedRole,
-              items: _roles.map((role) {
-                return DropdownMenuItem(
-                  value: role,
-                  child: Text(role.toUpperCase()),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  _selectedRole = value!;
-                });
-              },
-              decoration: const InputDecoration(labelText: "Select Role"),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _signUp,
-              child: const Text("Sign Up"),
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextField(
+                controller: _emailController,
+                decoration: const InputDecoration(labelText: "Email"),
+              ),
+              TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(labelText: "Password"),
+                obscureText: true,
+              ),
+              DropdownButtonFormField(
+                value: _selectedRole,
+                items: _roles.map((role) {
+                  return DropdownMenuItem(
+                    value: role,
+                    child: Text(role.toUpperCase()),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedRole = value!;
+                  });
+                },
+                decoration: const InputDecoration(labelText: "Select Role"),
+              ),
+
+              // Business ID field (needed for photographers)
+              if (_selectedRole == "photographer") ...[
+                const SizedBox(height: 12),
+                TextField(
+                  controller: _businessIdController,
+                  decoration: const InputDecoration(
+                    labelText: "Business ID",
+                  ),
+                ),
+              ],
+
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _signUp,
+                child: const Text("Sign Up"),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'photographer_home.dart'; // Separate photographer home screen
+import 'photographer_home.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +15,8 @@ class HomeScreen extends StatelessWidget {
         .doc(user.uid)
         .get();
 
-    return doc.data(); // contains role and business_id
+    if (!doc.exists) return null;
+    return doc.data();
   }
 
   @override
@@ -23,19 +24,35 @@ class HomeScreen extends StatelessWidget {
     return FutureBuilder<Map<String, dynamic>?>(
       future: _getUserData(),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
 
-        final userData = snapshot.data!;
-        final role = userData['role'];
-        final businessId = userData['business_id'];
-        final profilePic = FirebaseAuth.instance.currentUser?.photoURL;
+        if (snapshot.hasError) {
+          return const Scaffold(
+            body: Center(child: Text("Something went wrong. Please try again.")),
+          );
+        }
 
-        if (role == 'Photographer') {
-          return PhotographerHome(businessId: businessId, profilePic: profilePic);
+        if (!snapshot.hasData || snapshot.data == null) {
+          return const Scaffold(
+            body: Center(child: Text("User data not found")),
+          );
+        }
+
+        final userData = snapshot.data!;
+        final role = userData['role'] ?? '';
+        final businessId = userData['business_id'] ?? '';
+        final profilePic = FirebaseAuth.instance.currentUser?.photoURL ?? '';
+        final userId = FirebaseAuth.instance.currentUser?.uid ?? '';
+
+        if (role.toLowerCase() == 'photographer') {
+          return PhotographerHome(
+            businessId: businessId,
+            profilePic: profilePic,
+          );
         } else {
           return const Scaffold(
             body: Center(child: Text("Unauthorized or role not found")),

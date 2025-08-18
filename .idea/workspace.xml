@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="Add large model file via Git LFS">
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/drawer_widget.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/event_gallery_list_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/fullscreen_image_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_events_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/photographer_home.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/upload_event_images_screen.dart" afterDir="false" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added photographer's features">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vectorizer_service/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/eventGalleryScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/eventGalleryScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,28 +51,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;29046dcf&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "ca86976d",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\StudioProjects\Momento-AI\new_momentoai_fixed\assets\images" />
@@ -388,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755113648763</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added photographer's features">
+      <option name="closed" value="true" />
+      <created>1755259363717</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1755259363717</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -421,6 +419,7 @@
     <MESSAGE value="added photographer screen" />
     <MESSAGE value="added event and gallery screen" />
     <MESSAGE value="Add large model file via Git LFS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add large model file via Git LFS" />
+    <MESSAGE value="added photographer's features" />
+    <option name="LAST_COMMIT_MESSAGE" value="added photographer's features" />
   </component>
 </project>
