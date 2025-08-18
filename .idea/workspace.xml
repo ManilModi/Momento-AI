@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added photographer's features">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/register_screen.dart" afterDir="false" />
-    </list>
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="solved email/password auth issues" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +59,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "ca86976d",
+    "git-widget-placeholder": "8546ca6a",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "project.structure.last.edited": "Project",
@@ -386,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755259363717</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="solved email/password auth issues">
+      <option name="closed" value="true" />
+      <created>1755522072094</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1755522072094</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,6 +424,7 @@
     <MESSAGE value="added event and gallery screen" />
     <MESSAGE value="Add large model file via Git LFS" />
     <MESSAGE value="added photographer's features" />
-    <option name="LAST_COMMIT_MESSAGE" value="added photographer's features" />
+    <MESSAGE value="solved email/password auth issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="solved email/password auth issues" />
   </component>
 </project>
