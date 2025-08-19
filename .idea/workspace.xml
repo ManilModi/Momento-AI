@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added searching functionalities">
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/event_images_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/search_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vectorizer_service/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/client_images_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/client_images_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/event_gallery_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/new_momentoai_fixed/lib/screens/event_gallery_list_screen.dart" afterDir="false" />
-    </list>
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="added searching functionalities" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +59,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "b24e4a9c",
+    "git-widget-placeholder": "fc3eeb0b",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "project.structure.last.edited": "Project",
@@ -413,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755526930398</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added searching functionalities">
+      <option name="closed" value="true" />
+      <created>1755623630616</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1755623630616</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
