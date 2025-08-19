@@ -173,30 +173,39 @@ async def find_matching_group_image(
         traceback.print_exc()
         return {"error": "Internal Server Error", "detail": str(e)}
 
+
 @app.get("/search")
-def search_images(prompt: str = Query(...), top_k: int = Query(5)):
+def search_images(
+        prompt: str = Query(...),
+        top_k: int = Query(5),
+        event_ids: List[str] = Query(None)  # <-- new param
+):
     try:
-        # Encode text with the SAME model used for images
+        # Encode text with CLIP
         text_tokens = clip.tokenize([prompt]).to(device)
         with torch.no_grad():
             prompt_embedding = clip_model.encode_text(text_tokens).cpu().numpy().flatten()
 
-        # Fetch CLIP embeddings
-        response = supabase.table(SUPABASE_TABLE).select("clip_embedding, image_url").execute()
+        # Fetch embeddings from Supabase (filtered by event_ids if provided)
+        query = supabase.table(SUPABASE_TABLE).select("clip_embedding, image_url, event_id")
+        if event_ids:
+            query = query.in_("event_id", event_ids)  # <-- filter by allowed events
+        response = query.execute()
         data = response.data
-        if not data:
-            raise HTTPException(status_code=404, detail="No embeddings found")
 
-        embeddings = []
-        urls = []
+        if not data:
+            raise HTTPException(status_code=404, detail="No embeddings found for given events")
+
+        embeddings, urls = [], []
         for row in data:
-            emb_raw = row["clip_embedding"]  # <-- match column name here
+            emb_raw = row["clip_embedding"]
             if isinstance(emb_raw, str):
                 emb_list = json.loads(emb_raw)
             else:
                 emb_list = emb_raw
+
             arr = np.array(emb_list, dtype=np.float32).flatten()
-            if arr.shape == (512,):  # ensure correct size
+            if arr.shape == (512,):
                 embeddings.append(arr)
                 urls.append(row["image_url"])
 

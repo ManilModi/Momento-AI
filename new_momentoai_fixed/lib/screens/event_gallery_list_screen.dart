@@ -133,6 +133,19 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
     }
   }
 
+  // Open gallery view
+  void _openFullScreen(int initialIndex) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => FullScreenGallery(
+          images: imageUrls,
+          initialIndex: initialIndex,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,13 +167,16 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
               ),
               itemCount: imageUrls.length,
               itemBuilder: (context, index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    imageUrls[index],
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) =>
-                    const Icon(Icons.broken_image),
+                return GestureDetector(
+                  onTap: () => _openFullScreen(index),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      imageUrls[index],
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) =>
+                      const Icon(Icons.broken_image),
+                    ),
                   ),
                 );
               },
@@ -226,6 +242,60 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// Full screen gallery with swipe + zoom support
+class FullScreenGallery extends StatefulWidget {
+  final List<String> images;
+  final int initialIndex;
+
+  const FullScreenGallery({
+    super.key,
+    required this.images,
+    required this.initialIndex,
+  });
+
+  @override
+  State<FullScreenGallery> createState() => _FullScreenGalleryState();
+}
+
+class _FullScreenGalleryState extends State<FullScreenGallery> {
+  late PageController _pageController;
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+    _pageController = PageController(initialPage: _currentIndex);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text("${_currentIndex + 1} / ${widget.images.length}"),
+      ),
+      body: PageView.builder(
+        controller: _pageController,
+        itemCount: widget.images.length,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        itemBuilder: (context, index) {
+          return InteractiveViewer(
+            child: Center(
+              child: Image.network(widget.images[index]),
+            ),
+          );
+        },
       ),
     );
   }
