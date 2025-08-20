@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="removed Dockerfile" />
+    <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="changes for python deployment">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vectorizer_service/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +62,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "78bdc4df",
+    "git-widget-placeholder": "7394cc77",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "project.structure.last.edited": "Project",
@@ -430,7 +433,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755624277415</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="added Dockerfile">
+      <option name="closed" value="true" />
+      <created>1755624423612</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1755624423612</updated>
+    </task>
+    <task id="LOCAL-00045" summary="changes for python deployment">
+      <option name="closed" value="true" />
+      <created>1755624617404</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1755624617404</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -445,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added vectorizer services" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;vectorizer_service/.gitignore&#10;#&#9;vectorizer_service/__pycache__/app.cpython-313.pyc&#10;#&#9;vectorizer_service/__pycache__/supabase_client.cpython-313.pyc&#10;#&#9;vectorizer_service/app.py&#10;#&#9;vectorizer_service/supabase_client.py" />
     <MESSAGE value="added flutter setup" />
     <MESSAGE value="Merge branch 'main' of https://github.com/ManilModi/Momento-AI&#10;&#10;# Conflicts:&#10;#&#9;vectorizer_service/__pycache__/app.cpython-313.pyc&#10;#&#9;vectorizer_service/__pycache__/supabase_client.cpython-313.pyc" />
@@ -469,6 +487,8 @@
     <MESSAGE value="added searching functionalities" />
     <MESSAGE value="changes for python deployment in Dockerfile" />
     <MESSAGE value="removed Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed Dockerfile" />
+    <MESSAGE value="added Dockerfile" />
+    <MESSAGE value="changes for python deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for python deployment" />
   </component>
 </project>
