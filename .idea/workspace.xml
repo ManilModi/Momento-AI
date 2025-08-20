@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0a491de-c147-4bc4-a425-57b06c369966" name="Changes" comment="changes for python deployment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vectorizer_service/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Vectorizer_service/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "7394cc77",
+    "git-widget-placeholder": "15b8c4f0",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/StudioProjects/Momento-AI/new_momentoai_fixed/assets/images",
     "project.structure.last.edited": "Project",
@@ -449,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755624617404</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="changes for python deployment">
+      <option name="closed" value="true" />
+      <created>1755658941605</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1755658941605</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
