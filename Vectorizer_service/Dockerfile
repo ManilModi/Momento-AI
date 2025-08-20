@@ -17,8 +17,9 @@ COPY requirements.txt .
 
 # Install PyTorch separately with CPU wheels (avoids build failures)
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir torch==2.0.1+cpu torchvision==0.15.2+cpu torchaudio==2.0.2+cpu -f https://download.pytorch.org/whl/cpu && \
+    pip install --no-cache-dir torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 && \
     pip install --no-cache-dir -r requirements.txt
+
 
 COPY . .
 
