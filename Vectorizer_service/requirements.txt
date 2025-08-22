@@ -73,7 +73,7 @@ s3transfer==0.13.0
 safetensors==0.6.2
 scikit-image==0.25.2
 scikit-learn==1.7.0
-scipy==1.16.0
+scipy==1.14.1
 sentence-transformers==5.1.0
 setuptools==80.9.0
 simsimd==6.4.9
