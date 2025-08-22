@@ -8,6 +8,6 @@ onnxruntime>=1.16.3
 insightface==0.7.3
 python-multipart
 boto3
-open_clip
+open-clip-torch
 clip-interrogator
 clip
