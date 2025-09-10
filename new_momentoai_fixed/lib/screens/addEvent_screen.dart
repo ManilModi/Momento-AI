@@ -153,7 +153,7 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
       for (var image in _selectedImages) {
         var request = http.MultipartRequest(
           'POST',
-          Uri.parse('http://10.0.2.2:8000/vectorize')
+          Uri.parse('https://momento-ai-1-42230574747.asia-south1.run.app/vectorize')
         );
 
         request.fields['event_id'] = widget.eventId;
