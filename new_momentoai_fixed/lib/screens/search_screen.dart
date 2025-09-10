@@ -87,7 +87,7 @@ class _ImageSearchTabState extends State<ImageSearchTab> {
     try {
       final request = http.MultipartRequest(
         "POST",
-        Uri.parse("http://10.0.2.2:8000/find-face"),
+        Uri.parse("https://momento-ai-1-42230574747.asia-south1.run.app/find-face"),
       )
         ..fields['business_id'] = widget.businessId
         ..fields['event_id'] = widget.eventId
@@ -190,7 +190,7 @@ class _PromptSearchTabState extends State<PromptSearchTab> {
 
     try {
       final url =
-      Uri.parse("http://10.0.2.2:8000/search?prompt=$prompt&top_k=10");
+      Uri.parse("https://momento-ai-1-42230574747.asia-south1.run.app/search?prompt=$prompt&top_k=10");
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
