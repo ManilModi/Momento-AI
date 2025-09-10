@@ -28,7 +28,7 @@ class _UploadEventImagesScreenState extends State<UploadEventImagesScreen> {
   Future<void> _fetchEvents() async {
     try {
       final url = Uri.parse(
-        "http://10.0.2.2:8000/events?business_id=${widget.businessId}",
+        "https://momento-ai-1-42230574747.asia-south1.run.app/events?business_id=${widget.businessId}",
       );
       final response = await http.get(url);
 
@@ -68,7 +68,7 @@ class _UploadEventImagesScreenState extends State<UploadEventImagesScreen> {
     try {
       var request = http.MultipartRequest(
         "POST",
-        Uri.parse("http://10.0.2.2:8000/upload-event-images"),
+        Uri.parse("https://momento-ai-1-42230574747.asia-south1.run.app/upload-event-images"),
       );
 
       request.fields['business_id'] = widget.businessId;
