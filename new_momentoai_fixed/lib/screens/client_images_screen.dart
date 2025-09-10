@@ -89,7 +89,7 @@ class _ClientImagesScreenState extends State<ClientImagesScreen> {
       // 2. Build query string
       final eventIdsParam = eventIds.join(",");
       final url =
-          "http://10.0.2.2:8000/search?prompt=$query&top_k=10&event_ids=$eventIdsParam";
+          "https://momento-ai-1-42230574747.asia-south1.run.app/search?prompt=$query&top_k=10&event_ids=$eventIdsParam";
 
       // 3. Call backend
       final response = await http.get(Uri.parse(url));
