@@ -35,7 +35,7 @@ class _EventImagesScreenState extends State<EventImagesScreen> {
     try {
       final response = await http.get(
         Uri.parse(
-          "http://10.0.2.2:8000/event-images?business_id=${widget.businessId}&event_id=${widget.eventId}",
+          "https://momento-ai-1-42230574747.asia-south1.run.app/event-images?business_id=${widget.businessId}&event_id=${widget.eventId}",
         ),
       );
 
@@ -68,7 +68,7 @@ class _EventImagesScreenState extends State<EventImagesScreen> {
 
     try {
       final url =
-          "http://10.0.2.2:8000/search?prompt=$query&top_k=10&event_ids=${widget.eventId}";
+          "https://momento-ai-1-42230574747.asia-south1.run.app/search?prompt=$query&top_k=10&event_ids=${widget.eventId}";
       final response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
@@ -104,7 +104,7 @@ class _EventImagesScreenState extends State<EventImagesScreen> {
     try {
       final request = http.MultipartRequest(
         "POST",
-        Uri.parse("http://10.0.2.2:8000/find-face"),
+        Uri.parse("https://momento-ai-1-42230574747.asia-south1.run.app/find-face"),
       );
       request.fields["business_id"] = widget.businessId;
       request.fields["event_id"] = widget.eventId;
