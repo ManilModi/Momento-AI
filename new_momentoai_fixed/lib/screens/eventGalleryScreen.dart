@@ -33,7 +33,7 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
     setState(() => _isLoading = true);
     try {
       final url = Uri.http(
-        '10.0.2.2:8000',
+        'https://momento-ai-1-42230574747.asia-south1.run.app',
         '/event-images',
         {
           'business_id': widget.businessId,
@@ -83,7 +83,7 @@ class _EventGalleryScreenState extends State<EventGalleryScreen> {
       for (var image in _selectedImages) {
         var request = http.MultipartRequest(
           'POST',
-          Uri.parse('http://10.0.2.2:8000/vectorize'), // Upload endpoint
+          Uri.parse('https://momento-ai-1-42230574747.asia-south1.run.app/vectorize'), // Upload endpoint
         );
 
         request.fields['event_id'] = widget.eventId;
