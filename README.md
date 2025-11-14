@@ -1,4 +1,4 @@
-# 🧠 Momento AI — Software Requirements Specification (SRS)
+# 🧠 Momento AI 
 
 ## 1. Introduction
 
@@ -190,3 +190,4 @@ client.search_images(prompt="bride in red saree", event_id="event1", business_id
 
 # Find similar faces
 client.find_face("selfie.jpg", event_id="event1", business_id="b1")
+
